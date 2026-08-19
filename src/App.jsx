@@ -1,56 +1,63 @@
-import React, { useState } from 'react';
-import SectionIntro from './components/SectionIntro';
-import SectionKinetic from './components/SectionKinetic';
-import SectionMap from './components/SectionMap';
-import SectionEditorial from './components/SectionEditorial';
-import SectionFinalCTA from './components/SectionFinalCTA';
-import WorkspaceModal from './components/WorkspaceModal';
+import React, { useState, useEffect } from 'react';
+import Navigation from './components/Navigation';
+import SceneOrigin from './components/SceneOrigin';
+import SceneSignal from './components/SceneSignal';
+import ScenePath from './components/ScenePath';
+import SceneTrace from './components/SceneTrace';
+import SceneDestination from './components/SceneDestination';
+import WorkspaceDrawer from './components/WorkspaceDrawer';
 import './App.css';
 
 export default function App() {
+  const [activeScene, setActiveScene] = useState('origin');
   const [isWorkspaceOpen, setIsWorkspaceOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sceneIds = ['origin', 'signal', 'path', 'trace', 'destination'];
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (let i = sceneIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sceneIds[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveScene(sceneIds[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="page-container">
-      {/* Top Bar Fixed Navigation Overlay (Awwwards Style) */}
-      <header className="site-nav-overlay">
-        <div className="brand-tag" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ width: '6px', height: '6px', background: 'var(--accent)', borderRadius: '50%' }}></span>
-          <span>PULSE / CAREER NAVIGATION</span>
-        </div>
+    <div className="orbit-page-wrapper">
+      {/* Navigation Header & Section Instrument Controls */}
+      <Navigation 
+        activeScene={activeScene}
+        onSelectScene={setActiveScene}
+        onOpenWorkspace={() => setIsWorkspaceOpen(true)}
+      />
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <span className="date-tag">08.19.26</span>
-          <button 
-            onClick={() => setIsWorkspaceOpen(true)}
-            className="btn-ghost"
-            style={{ padding: '6px 14px', fontSize: '11px' }}
-            id="nav-enter-workspace-btn"
-          >
-            ENTER WORKSPACE →
-          </button>
-        </div>
-      </header>
+      {/* SCENE 01 — ORIGIN */}
+      <SceneOrigin />
 
-      {/* SECTION 1 — INTRO */}
-      <SectionIntro />
+      {/* SCENE 02 — SIGNAL */}
+      <SceneSignal />
 
-      {/* SECTION 2 — KINETIC TYPOGRAPHY */}
-      <SectionKinetic />
+      {/* SCENE 03 — PATH */}
+      <ScenePath />
 
-      {/* SECTION 3 & 4 — PRODUCT REVEAL & INTERACTIVE CAREER MAP */}
-      <SectionMap onOpenWorkspaceModal={() => setIsWorkspaceOpen(true)} />
+      {/* SCENE 04 — TRACE (INTERACTIVE PRODUCT MOMENT) */}
+      <SceneTrace onOpenWorkspaceDrawer={() => setIsWorkspaceOpen(true)} />
 
-      {/* SECTION 5 — PRODUCT MESSAGE */}
-      <SectionEditorial />
+      {/* SCENE 05 — DESTINATION & FOOTER */}
+      <SceneDestination onOpenWorkspaceDrawer={() => setIsWorkspaceOpen(true)} />
 
-      {/* SECTION 6 — FINAL CTA & FOOTER */}
-      <SectionFinalCTA onOpenWorkspaceModal={() => setIsWorkspaceOpen(true)} />
-
-      {/* INTERACTIVE WORKSPACE DEMO OVERLAY */}
-      <WorkspaceModal 
-        isOpen={isWorkspaceOpen} 
-        onClose={() => setIsWorkspaceOpen(false)} 
+      {/* INTERACTIVE DEMO WORKSPACE DRAWER OVERLAY */}
+      <WorkspaceDrawer 
+        isOpen={isWorkspaceOpen}
+        onClose={() => setIsWorkspaceOpen(false)}
       />
     </div>
   );

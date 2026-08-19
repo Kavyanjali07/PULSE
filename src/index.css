@@ -1,23 +1,24 @@
-/* Awwwards-Inspired Editorial Design System */
+/* ORBIT Design System — Editorial & Minimal Paper Theme */
 :root {
-  /* Dark Editorial Palette */
-  --bg-dark: #06070a;
-  --bg-surface: #0a0c12;
-  --bg-card: #0f121b;
-  --border-dark: #181d2a;
-  --border-subtle: #121520;
-  
-  --text-primary: #ffffff;
-  --text-secondary: #8592a3;
-  --text-muted: #424c5a;
+  /* Warm Paper Neutral Palette */
+  --bg-paper: #f5f4f0;
+  --bg-surface: #eae7e0;
+  --bg-card: #e4e1d9;
+  --border-subtle: #d6d3c9;
+  --border-strong: #111113;
 
-  /* Accent Color: Luminous Electric Cyan */
-  --accent: #00f0ff;
-  --accent-glow: rgba(0, 240, 255, 0.4);
-  --accent-dim: rgba(0, 240, 255, 0.1);
-  --accent-line: rgba(0, 240, 255, 0.5);
+  --text-primary: #0d0d0e;
+  --text-secondary: #55555a;
+  --text-muted: #85858a;
 
-  /* Fonts */
+  /* Accent: Vivid Signal Orange */
+  --accent: #ff4500;
+  --accent-rgb: 255, 69, 0;
+  --accent-dim: rgba(255, 69, 0, 0.08);
+  --accent-border: rgba(255, 69, 0, 0.4);
+  --accent-glow: rgba(255, 69, 0, 0.25);
+
+  /* Typography Families */
   --font-display: 'Syne', sans-serif;
   --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -31,7 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-paper);
   color: var(--text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -41,54 +42,48 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-paper);
   color: var(--text-primary);
   overflow-x: hidden;
 }
 
-/* Subtle Technical Grid Overlay */
-.tech-grid-bg {
-  background-size: 60px 60px;
+/* Technical Grid Pattern (Subtle Paper Coordinate Grid) */
+.paper-grid-bg {
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
 }
 
-/* Kinetic Typography Vector Line */
-.vector-line-accent {
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
-  filter: drop-shadow(0 0 10px var(--accent-glow));
-}
-
-/* Primary Awwwards CTA Button */
-.btn-pulse {
+/* Primary Signal Button */
+.btn-orbit {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background-color: var(--accent);
-  color: #030508;
+  background-color: var(--text-primary);
+  color: var(--bg-paper);
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.02em;
   padding: 16px 36px;
-  border: 1px solid var(--accent);
-  border-radius: 2px;
+  border: 1px solid var(--text-primary);
+  border-radius: 0px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.btn-pulse:hover {
-  background-color: #ffffff;
-  border-color: #ffffff;
-  box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);
+.btn-orbit:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.3);
 }
 
-.btn-ghost {
+.btn-orbit-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -98,14 +93,15 @@ body {
   font-size: 12px;
   letter-spacing: 0.08em;
   padding: 10px 20px;
-  border: 1px solid var(--border-dark);
-  border-radius: 2px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0px;
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
-.btn-ghost:hover {
+.btn-orbit-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-dim);
@@ -118,72 +114,70 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   padding: 4px 10px;
-  border-radius: 2px;
+  border-radius: 0px;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.status-badge.interview {
+.status-badge.accent {
   color: var(--accent);
-  background: rgba(0, 240, 255, 0.12);
-  border: 1px solid rgba(0, 240, 255, 0.4);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
 }
 
-.status-badge.followup {
-  color: #ffb700;
-  background: rgba(255, 183, 0, 0.12);
-  border: 1px solid rgba(255, 183, 0, 0.4);
-}
-
-.status-badge.applied {
-  color: #00ff88;
-  background: rgba(0, 255, 136, 0.12);
-  border: 1px solid rgba(0, 255, 136, 0.4);
-}
-
-.status-badge.closed {
+.status-badge.muted {
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-dark);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-subtle);
 }
 
 /* Custom Animations */
-@keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 0.3; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.animate-pulse-dot {
+  animation: pulse-dot 2.5s ease-in-out infinite;
 }
 
-@keyframes line-flow {
+@keyframes path-particle {
   to { stroke-dashoffset: -40; }
 }
 
-.animate-line-flow {
-  stroke-dasharray: 8 6;
-  animation: line-flow 1.8s linear infinite;
+.animate-path-dash {
+  stroke-dasharray: 6 6;
+  animation: path-particle 1.5s linear infinite;
 }
 
-/* Selection & Scrollbar */
-::selection {
-  background-color: var(--accent);
-  color: #000;
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--bg-paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-dark);
+  background: var(--border-subtle);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
 }
