@@ -4,19 +4,18 @@ import { ArrowRight } from 'lucide-react';
 export default function SceneDestination({ onOpenWorkspaceDrawer }) {
   return (
     <>
-      <section className="scene-destination paper-grid-bg" id="destination">
+      <section className="scene-destination paper-grid-bg" id="explore">
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--accent)', letterSpacing: '0.16em', marginBottom: '20px' }}>
-          // SCENE 05 — DESTINATION LOOP
+          // SCENE 05 — UNDERSTAND & DESTINATION
         </div>
 
         <h2 className="destination-headline">
-          FOLLOW<br />
-          THE<br />
-          <span style={{ color: 'var(--accent)' }}>SIGNAL.</span>
+          NOW YOU KNOW<br />
+          <span style={{ color: 'var(--accent)' }}>WHAT CHANGED.</span>
         </h2>
 
         <p style={{ fontFamily: 'var(--font-sans)', fontSize: '22px', color: 'var(--text-secondary)', marginBottom: '36px' }}>
-          ORBIT maps what connects.
+          "Follow the signal. Understand the system."
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
@@ -48,8 +47,9 @@ export default function SceneDestination({ onOpenWorkspaceDrawer }) {
           <div style={{ display: 'flex', gap: '40px' }}>
             <div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.12em', marginBottom: '12px' }}>NAVIGATION</div>
-              <a href="#origin" className="footer-link" style={{ display: 'block', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '8px', fontSize: '14px' }}>Origin</a>
-              <a href="#trace" className="footer-link" style={{ display: 'block', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '8px', fontSize: '14px' }}>Trace Graph</a>
+              <a href="#hero" className="footer-link" style={{ display: 'block', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '8px', fontSize: '14px' }}>Hero Overview</a>
+              <a href="#what-is-orbit" className="footer-link" style={{ display: 'block', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '8px', fontSize: '14px' }}>What is Orbit?</a>
+              <a href="#discover" className="footer-link" style={{ display: 'block', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '8px', fontSize: '14px' }}>3D Interactive World</a>
             </div>
 
             <div>
@@ -61,7 +61,7 @@ export default function SceneDestination({ onOpenWorkspaceDrawer }) {
         </div>
 
         <div style={{ maxWidth: '1300px', margin: '20px auto 0 auto', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)' }}>
-          <div>© 2026 ORBIT. ALL DEMO DATA IS CLEARLY IDENTIFIED.</div>
+          <div>© 2026 ORBIT. ALL DISPLAYED DATA IS DEMO INFORMATION.</div>
           <div>EVERYTHING IS CONNECTED.</div>
         </div>
       </footer>

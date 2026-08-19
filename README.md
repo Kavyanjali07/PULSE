@@ -1,41 +1,57 @@
-# ORBIT — Information Intelligence Platform
+# ORBIT — Information Intelligence Platform (3D Interactive UX)
 
-> **EVERYTHING IS CONNECTED.**
+> **UNDERSTAND WHAT CHANGES.**
 
-ORBIT is an editorial, experimental, and technical interactive landing page built for an information intelligence platform that helps users understand how information changes and how different sources are connected.
+ORBIT is an editorial, experimental, and 3D interactive product landing page for an information intelligence platform that monitors configured sources, detects meaningful changes, and maps how those changes connect.
+
+---
+
+## What ORBIT Does (Product Clarity)
+
+> *"ORBIT monitors your chosen information sources, detects meaningful changes, and maps how those changes connect."*
 
 ---
 
 ## Key Features
 
-- **Continuous 5-Scene Storytelling**:
-  `TYPOGRAPHY` → `LINES` → `NETWORK` → `SIGNAL` → `PATH` → `SOURCE` → `DESTINATION`
-- **Restrained Editorial Aesthetic**: Warm paper canvas (`#F5F4F0`), near-black typography (`#0D0D0E`), and Signal Orange (`#FF4500`) reserved exclusively for active connections and state diffs.
-- **Scene 04 Interactive Product Moment**: Interactive SVG graph featuring 6 monitored demo sources (`DOCUMENTATION`, `API`, `RELEASE NOTES`, `DATABASE`, `BLOG`, `PRODUCT`). Hovering or tapping nodes dim non-connected paths, illuminates vector relationships, and displays an integrated info panel.
-- **Snapshot Architecture HUD**: 8-step ingestion pipeline (`SOURCE` → `FETCH` → `SNAPSHOT` → `STORE` → `COMPARE` → `CHANGE DETECTION` → `RELATIONSHIP GRAPH` → `VISUALIZATION`).
-- **Demo Workspace Inspector Drawer**: Interactive overlay allowing users to trigger snapshot fetches and inspect source differentials.
-- **Responsive (390px & 1440px)**: Desktop spatial graph transforms into a vertical trajectory spine for mobile viewports with 0 horizontal scrolling.
-- **Accessibility & Motion**: Full `@media (prefers-reduced-motion: reduce)` support and keyboard accessibility (`tabIndex={0}`).
+- **Interactive 3D Information System (Three.js Engine)**:
+  - Central abstract ORBIT core (icosahedron wireframe + inner matte core + pulse ring).
+  - 6 Orbiting Source Nodes: `DOCUMENTATION`, `API`, `RELEASE NOTES`, `DATABASE`, `BLOG`, `PRODUCT`.
+  - Mouse parallax depth & raycasting 3D hover/click interactions.
+  - Spatial 2D projected cards displaying live snapshot diff notes (`"pricing field modified in section 4.2"`).
+- **Persistent 5-State Scroll-Driven Story**:
+  - `STATE 01: DISCOVER` (`SEE THE SYSTEM.`)
+  - `STATE 02: DETECT` (`SOURCES CHANGE.`)
+  - `STATE 03: CONNECT` (`CONTEXT CHANGES.`)
+  - `STATE 04: TRACE` (`FOLLOW THE SIGNAL.`)
+  - `STATE 05: UNDERSTAND` (`NOW YOU KNOW WHAT CHANGED.`)
+- **Mandatory "WHAT IS ORBIT?" Section**:
+  - 3 concepts (`01 / OBSERVE`, `02 / DETECT`, `03 / TRACE`) that interactively control the 3D scene camera and node highlights.
+- **Resilient Ingestion Pipeline HUD**:
+  - `SOURCE` → `FETCH` → `SNAPSHOT` → `COMPARE` → `CHANGE` → `RELATIONSHIP` → `ORBIT`
+- **Demo Workspace Inspector Drawer Overlay**:
+  - Allows visitors to simulate snapshot fetches and view differential details.
 
 ---
 
 ## Tech Stack
 
 - **Framework**: React 19 + Vite 8
-- **Styling**: Vanilla CSS (CSS Variables, Grid, Editorial Paper Design System)
+- **3D Engine**: Three.js
 - **Animation**: Framer Motion
+- **Styling**: Vanilla CSS (Warm Paper Palette, Grid System)
 - **Icons**: Lucide React
 - **Linter**: Oxlint (`0 warnings, 0 errors`)
 
 ---
 
-## Local Development & Build
+## Quick Start
 
 ```bash
-# Run local development server (port 5173)
+# Run development server (port 5173)
 npm run dev
 
-# Build production bundle
+# Production build
 npm run build
 
 # Run Oxlint
@@ -44,6 +60,6 @@ npx oxlint
 
 ---
 
-## Architecture Decisions
+## Architectural Rationale
 
-See [`DECISIONS.md`](./DECISIONS.md) for full architectural rationale, typography hierarchy, color palette constraints, and responsive storytelling mechanics.
+See [`DECISIONS.md`](./DECISIONS.md) for complete details on the 3D canvas engine, camera transitions, visual art direction, and accessibility features.

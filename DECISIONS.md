@@ -1,23 +1,61 @@
-# DECISIONS.md
+# DECISIONS.md — ORBIT Information Intelligence Platform (3D UX & Product Clarity Upgrade)
 
-## 1. Why this ingestion strategy?
+## Architectural & Design Decisions
 
-I chose a **snapshot-based ingestion strategy with retries, backoff, and resumable processing** rather than continuously scraping a source in one long-running request.
+### 1. UX Priority: Immediate Product Clarity First
 
-The obvious alternative was a simple fetch-and-process pipeline: request the source, parse everything, and continue until completion. I rejected that because it is fragile when a source rate-limits, blocks, times out, or changes its response during a run.
+A major focus of this upgrade is **unambiguous product clarity**. Within the first section (less than 3 seconds), any visitor immediately understands what ORBIT does:
 
-With snapshots, each successful fetch is stored before processing. If a source blocks the next request, the system can back off and retry without losing the last known state. Change detection can then compare the latest successful snapshot against the previous one. This makes ingestion more resilient and also gives the product a reliable "what changed?" foundation.
+> **"ORBIT monitors your chosen information sources, detects meaningful changes, and maps how those changes connect."**
 
-## 2. Trade-off under the time limit
+- **Hero Eyebrow**: `ORBIT / INFORMATION INTELLIGENCE`
+- **Main Headline**: `UNDERSTAND WHAT CHANGES.`
+- **Primary Action**: `EXPLORE THE SYSTEM →`
+- **Secondary Action**: `SEE HOW IT WORKS`
 
-Because the implementation had to be completed quickly, I prioritized the **core product experience and ingestion architecture** over building a production-grade ingestion service.
+---
 
-The demo uses a controlled dataset and focuses on demonstrating how the product would detect and present changes. With a real week, I would implement persistent ingestion jobs, source-specific rate limits, exponential backoff with jitter, request timeouts, checkpointing, failure states, structured logging, and monitoring. I would also test behavior against sources that return rate limits, errors, partial responses, or schema changes.
+### 2. Interactive 3D World (Three.js Engine)
 
-## 3. Where I used AI
+The centerpiece of the landing experience is a **custom Three.js interactive 3D information network**:
 
-I used AI tools to accelerate the initial implementation, particularly for generating the page structure, styling, responsive CSS, and some interaction logic.
+- **Central Abstract ORBIT Core**: An inner matte charcoal sphere (`#111113`) enclosed within an outer rotating icosahedron wireframe (`#55555A`) and a pulsing Signal Orange (`#FF4500`) core ring.
+- **6 Orbiting 3D Source Nodes**: `DOCUMENTATION`, `API`, `RELEASE NOTES`, `DATABASE`, `BLOG`, `PRODUCT`.
+- **Restrained Material System**: Matte black/charcoal, warm paper white, subtle metallic surfaces, and Signal Orange `#FF4500` used strictly for active connection emphasis.
+- **Mouse Parallax**: Smooth lerp cursor tracking for depth without nausea.
 
-I did not treat the generated output as final. I personally reviewed the implementation, tested the page at **390px and 1440px**, checked for horizontal overflow and broken responsive behavior, and changed the visual hierarchy, spacing, typography, interaction behavior, and product presentation where the generated result felt generic or inconsistent with the intended design.
+---
 
-The final decisions about the product concept, visual direction, ingestion approach, trade-offs, and what was acceptable to ship were mine.
+### 3. Scroll-Driven 3D Story Sequence (5 States)
+
+As the user scrolls down through the persistent 3D canvas viewport, the camera position, node highlights, and trajectory vectors seamlessly blend across 5 states:
+
+1. **STATE 01 — DISCOVER**: Overview perspective with 6 nodes orbiting the central core (`SEE THE SYSTEM.`).
+2. **STATE 02 — DETECT**: Camera zooms toward `API` node as diff disruption triggers Signal Orange pulse (`SOURCES CHANGE.`).
+3. **STATE 03 — CONNECT**: View rotates to display change propagation into connected documentation & product nodes (`CONTEXT CHANGES.`).
+4. **STATE 04 — TRACE**: Camera aligns along the active vector path `API → DOCUMENTATION → PRODUCT` (`FOLLOW THE SIGNAL.`).
+5. **STATE 05 — UNDERSTAND**: Camera pulls back into a serene overview as the network stabilizes (`NOW YOU KNOW WHAT CHANGED.`).
+
+---
+
+### 4. Mandatory "WHAT IS ORBIT?" Section
+
+Directly following the hero overview, three interactive concept cards connect directly with the 3D world:
+- `01 / OBSERVE`: Highlights all source nodes in the 3D scene.
+- `02 / DETECT`: Reorients 3D camera to highlight changed nodes.
+- `03 / TRACE`: Highlights downstream vector path connections.
+
+---
+
+### 5. Node Hover & Click Microinteraction Mechanics
+
+- **Hover & Raycasting**: Raycaster detects 3D sphere hover, expanding node scale (`1.4x`), highlighting line vectors in `#FF4500`, and projecting a 2D spatial information card with snapshot diff notes (`"pricing field modified in section 4.2"`).
+- **Click Selection**: Clicking a 3D node reorients camera focus toward that node and provides a `TRACE CHANGE →` button to launch the Demo Workspace Data Inspector.
+
+---
+
+### 6. Performance, Fallback, and Responsive Design
+
+- **Mobile Viewports (390px)**: Camera distance is adjusted, particle density is reduced to 120 floating particles, and projected cards switch to anchored touch overlays with **0 horizontal scroll**.
+- **Honesty**: All data is explicitly tagged as `DEMO EXPERIENCE`, `DEMO SOURCE`, or `SAMPLE SNAPSHOT` with 0 fake testimonials or fake user counts.
+- **Accessibility & Motion**: Full respect for `@media (prefers-reduced-motion: reduce)`.

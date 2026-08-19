@@ -5,18 +5,17 @@ export default function Navigation({ activeScene, onSelectScene, onOpenWorkspace
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scenes = [
-    { id: 'origin', label: '01 / ORIGIN' },
-    { id: 'signal', label: '02 / SIGNAL' },
-    { id: 'path', label: '03 / PATH' },
-    { id: 'trace', label: '04 / TRACE' },
-    { id: 'destination', label: '05 / DESTINATION' }
+    { id: 'discover', label: '01 / DISCOVER' },
+    { id: 'understand', label: '02 / UNDERSTAND' },
+    { id: 'trace', label: '03 / TRACE' },
+    { id: 'explore', label: '04 / EXPLORE' }
   ];
 
   return (
     <>
       {/* Top Bar Navigation */}
       <header className="orbit-top-nav">
-        <a href="#origin" className="orbit-brand" aria-label="ORBIT Home">
+        <a href="#hero" className="orbit-brand" aria-label="ORBIT Home">
           <span className="brand-dot animate-pulse-dot"></span>
           <span>ORBIT</span>
         </a>
@@ -29,7 +28,7 @@ export default function Navigation({ activeScene, onSelectScene, onOpenWorkspace
             id="nav-workspace-trigger"
           >
             <span className="status-badge accent" style={{ fontSize: '8px', padding: '2px 4px' }}>DEMO</span>
-            <span>EXPLORE DATA →</span>
+            <span>EXPLORE SYSTEM →</span>
           </button>
 
           <button 
@@ -115,7 +114,7 @@ export default function Navigation({ activeScene, onSelectScene, onOpenWorkspace
                 </div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-primary)', lineHeight: '1.6' }}>
                   STATUS: ONLINE<br />
-                  INGESTION LATENCY: 02.4ms<br />
+                  3D RENDER ENGINE: THREE.JS<br />
                   ACTIVE NODES: 06 DEMO SOURCES<br />
                   SNAPSHOT ENGINE: v3.4.1
                 </div>
