@@ -1,0 +1,488 @@
+/* Awwwards Storytelling Layout Rules */
+
+.site-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.site-nav-overlay * {
+  pointer-events: auto;
+}
+
+.brand-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.date-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+/* SECTION 1 — INTRO */
+.section-intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 140px 40px 60px 40px;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.intro-center {
+  margin: auto 0;
+}
+
+.intro-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 108px;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  max-width: 1100px;
+}
+
+.intro-headline-line {
+  display: block;
+}
+
+.intro-bottom-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  animation: pulse-scroll 2s ease-in-out infinite;
+}
+
+@keyframes pulse-scroll {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* SECTION 2 — KINETIC TYPOGRAPHY */
+.section-kinetic {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 40px;
+  position: relative;
+  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.kinetic-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.kinetic-subhead {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.kinetic-trajectory-word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 140px;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  position: relative;
+  will-change: transform;
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.kinetic-vector-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, rgba(0, 240, 255, 0.1) 100%);
+  margin-top: 40px;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* SECTION 3 & 4 — PRODUCT MAP & INTERACTION */
+.section-map {
+  padding: 100px 40px 140px 40px;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.map-card-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dark);
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
+}
+
+.map-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--border-dark);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.map-canvas-container {
+  position: relative;
+  min-height: 560px;
+  width: 100%;
+}
+
+/* Inspector Floating Card */
+.inspector-card-float {
+  position: absolute;
+  z-index: 50;
+  width: 320px;
+  background: #080b12;
+  border: 1px solid var(--accent);
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.2);
+  pointer-events: auto;
+}
+
+/* SECTION 5 — PRODUCT MESSAGE (EDITORIAL) */
+.section-editorial-message {
+  padding: 160px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.editorial-giant-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.editorial-right-col {
+  padding-top: 20px;
+}
+
+.editorial-copy {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  margin-bottom: 60px;
+}
+
+/* Typographic States List (No cards!) */
+.typographic-states-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-top: 1px solid var(--border-dark);
+  padding-top: 40px;
+}
+
+.typographic-state-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: border-color 0.3s ease;
+}
+
+.typographic-state-row:hover {
+  border-color: var(--accent);
+}
+
+.state-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.state-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 42px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.state-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 220px;
+  text-align: right;
+}
+
+/* SECTION 6 — FINAL CTA */
+.section-final-cta {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 140px 40px;
+  position: relative;
+}
+
+.final-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 76px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  max-width: 1000px;
+  margin-bottom: 48px;
+}
+
+/* FOOTER */
+.site-footer {
+  border-top: 1px solid var(--border-dark);
+  padding: 80px 40px 40px 40px;
+  background-color: var(--bg-surface);
+}
+
+.footer-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.footer-sub {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 48px;
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-link-item {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-primary);
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.footer-link-item:hover {
+  color: var(--accent);
+}
+
+.footer-legal-bar {
+  max-width: 1300px;
+  margin: 24px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* WORKSPACE INTERACTIVE MODAL OVERLAY */
+.workspace-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(3, 4, 7, 0.95);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.workspace-modal {
+  width: 100%;
+  max-width: 980px;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 240, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+/* MOBILE RESPONSIVE TARGET: 390px */
+@media (max-width: 768px) {
+  .site-nav-overlay {
+    padding: 16px 20px;
+  }
+
+  .section-intro {
+    padding: 100px 20px 40px 20px;
+    min-height: 85vh;
+  }
+
+  .intro-headline {
+    font-size: 44px;
+    line-height: 0.96;
+  }
+
+  .section-kinetic {
+    padding: 80px 20px;
+    min-height: 70vh;
+  }
+
+  .kinetic-subhead {
+    font-size: 40px;
+  }
+
+  .kinetic-trajectory-word {
+    font-size: 54px;
+  }
+
+  .section-map {
+    padding: 40px 16px 80px 16px;
+  }
+
+  .map-card-header {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .map-canvas-container {
+    min-height: 640px;
+  }
+
+  .inspector-card-float {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+  }
+
+  .section-editorial-message {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 80px 20px;
+  }
+
+  .editorial-giant-heading {
+    font-size: 48px;
+  }
+
+  .editorial-copy {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .state-name {
+    font-size: 28px;
+  }
+
+  .state-desc {
+    max-width: 140px;
+    font-size: 12px;
+  }
+
+  .section-final-cta {
+    padding: 80px 20px;
+    min-height: 60vh;
+  }
+
+  .final-headline {
+    font-size: 38px;
+    margin-bottom: 32px;
+  }
+
+  .site-footer {
+    padding: 40px 20px 20px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-links-group {
+    gap: 32px;
+  }
+}

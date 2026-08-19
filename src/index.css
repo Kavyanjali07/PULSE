@@ -1,0 +1,189 @@
+/* Awwwards-Inspired Editorial Design System */
+:root {
+  /* Dark Editorial Palette */
+  --bg-dark: #06070a;
+  --bg-surface: #0a0c12;
+  --bg-card: #0f121b;
+  --border-dark: #181d2a;
+  --border-subtle: #121520;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #8592a3;
+  --text-muted: #424c5a;
+
+  /* Accent Color: Luminous Electric Cyan */
+  --accent: #00f0ff;
+  --accent-glow: rgba(0, 240, 255, 0.4);
+  --accent-dim: rgba(0, 240, 255, 0.1);
+  --accent-line: rgba(0, 240, 255, 0.5);
+
+  /* Fonts */
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Subtle Technical Grid Overlay */
+.tech-grid-bg {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Kinetic Typography Vector Line */
+.vector-line-accent {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+/* Primary Awwwards CTA Button */
+.btn-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--accent);
+  color: #030508;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  padding: 16px 36px;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-pulse:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 10px 20px;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Status Badges */
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-badge.interview {
+  color: var(--accent);
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+}
+
+.status-badge.followup {
+  color: #ffb700;
+  background: rgba(255, 183, 0, 0.12);
+  border: 1px solid rgba(255, 183, 0, 0.4);
+}
+
+.status-badge.applied {
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+}
+
+.status-badge.closed {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-dark);
+}
+
+/* Custom Animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes line-flow {
+  to { stroke-dashoffset: -40; }
+}
+
+.animate-line-flow {
+  stroke-dasharray: 8 6;
+  animation: line-flow 1.8s linear infinite;
+}
+
+/* Selection & Scrollbar */
+::selection {
+  background-color: var(--accent);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
