@@ -1,65 +1,85 @@
-# ORBIT — Information Intelligence Platform (3D Interactive UX)
+# ORBIT — Information Intelligence Interface
 
-> **UNDERSTAND WHAT CHANGES.**
+**Repository:** PULSE  
+**Product concept:** ORBIT
 
-ORBIT is an editorial, experimental, and 3D interactive product landing page for an information intelligence platform that monitors configured sources, detects meaningful changes, and maps how those changes connect.
+ORBIT is an experimental interactive product experience for an information-intelligence platform. The concept is simple: monitor selected information sources, detect meaningful changes, and show how those changes relate.
 
----
+This repository focuses on the product interface and its interactive 3D storytelling. It is a frontend concept/demo, not a claim that a production monitoring or ingestion backend is deployed.
 
-## What ORBIT Does (Product Clarity)
+## Product model
 
-> *"ORBIT monitors your chosen information sources, detects meaningful changes, and maps how those changes connect."*
-
----
-
-## Key Features
-
-- **Interactive 3D Information System (Three.js Engine)**:
-  - Central abstract ORBIT core (icosahedron wireframe + inner matte core + pulse ring).
-  - 6 Orbiting Source Nodes: `DOCUMENTATION`, `API`, `RELEASE NOTES`, `DATABASE`, `BLOG`, `PRODUCT`.
-  - Mouse parallax depth & raycasting 3D hover/click interactions.
-  - Spatial 2D projected cards displaying live snapshot diff notes (`"pricing field modified in section 4.2"`).
-- **Persistent 5-State Scroll-Driven Story**:
-  - `STATE 01: DISCOVER` (`SEE THE SYSTEM.`)
-  - `STATE 02: DETECT` (`SOURCES CHANGE.`)
-  - `STATE 03: CONNECT` (`CONTEXT CHANGES.`)
-  - `STATE 04: TRACE` (`FOLLOW THE SIGNAL.`)
-  - `STATE 05: UNDERSTAND` (`NOW YOU KNOW WHAT CHANGED.`)
-- **Mandatory "WHAT IS ORBIT?" Section**:
-  - 3 concepts (`01 / OBSERVE`, `02 / DETECT`, `03 / TRACE`) that interactively control the 3D scene camera and node highlights.
-- **Resilient Ingestion Pipeline HUD**:
-  - `SOURCE` → `FETCH` → `SNAPSHOT` → `COMPARE` → `CHANGE` → `RELATIONSHIP` → `ORBIT`
-- **Demo Workspace Inspector Drawer Overlay**:
-  - Allows visitors to simulate snapshot fetches and view differential details.
-
----
-
-## Tech Stack
-
-- **Framework**: React 19 + Vite 8
-- **3D Engine**: Three.js
-- **Animation**: Framer Motion
-- **Styling**: Vanilla CSS (Warm Paper Palette, Grid System)
-- **Icons**: Lucide React
-- **Linter**: Oxlint (`0 warnings, 0 errors`)
-
----
-
-## Quick Start
-
-```bash
-# Run development server (port 5173)
-npm run dev
-
-# Production build
-npm run build
-
-# Run Oxlint
-npx oxlint
+```mermaid
+flowchart LR
+    A[Configured sources] --> B[Fetch]
+    B --> C[Snapshot]
+    C --> D[Compare]
+    D --> E[Detect change]
+    E --> F[Connect related changes]
+    F --> G[Visualise in ORBIT]
 ```
 
----
+The interface uses this pipeline as a product narrative. Sample source names and snapshot differences shown in the demo are illustrative unless connected to a real data source.
 
-## Architectural Rationale
+## Interaction architecture
 
-See [`DECISIONS.md`](./DECISIONS.md) for complete details on the 3D canvas engine, camera transitions, visual art direction, and accessibility features.
+The experience is organised around a persistent 3D scene and a scroll-driven narrative:
+
+| State | Story beat | Visual intent |
+|---|---|---|
+| 01 — Discover | See the system | Overview of the source network |
+| 02 — Detect | Sources change | Focus on a changed source |
+| 03 — Connect | Context changes | Show relationships between sources |
+| 04 — Trace | Follow the signal | Highlight a path through related changes |
+| 05 — Understand | See the whole picture | Return to the network overview |
+
+Interactive source nodes support hover and click exploration. The demo workspace inspector presents sample change details.
+
+## Technology
+
+- React 19
+- Vite
+- Three.js
+- Framer Motion
+- Vanilla CSS
+- Lucide React
+- Oxlint
+
+## Run locally
+
+Requirements: a recent Node.js release compatible with the installed Vite version and npm.
+
+```bash
+git clone https://github.com/Kavyanjali07/PULSE.git
+cd PULSE
+npm install
+npm run dev
+```
+
+Create a production build:
+
+```bash
+npm run build
+npm run preview
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## Design and architecture decisions
+
+The detailed rationale is maintained in [DECISIONS.md](./DECISIONS.md). It records the interaction model, 3D scene behaviour, scroll states, responsive decisions, and visual system.
+
+## Scope and limitations
+
+- The repository demonstrates a frontend concept and interactive sample experience.
+- Sample source events and change descriptions should not be interpreted as live monitoring results.
+- A production version would require source connectors, secure credential handling, snapshot storage, change-detection services, relationship modelling, and operational monitoring.
+- Performance and accessibility should be tested across real devices and reduced-motion settings.
+
+## Author
+
+Kavyanjali · [GitHub](https://github.com/Kavyanjali07) · [LinkedIn](https://www.linkedin.com/in/kavyanjali07)
